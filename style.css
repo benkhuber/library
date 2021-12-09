@@ -1,7 +1,47 @@
 .add-book {
     margin: 10px;
+    width: 100px;
 }
 
 .entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin: 10px;
+}
+
+.library-display {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.card-title {
+    border: solid 2px red;
+    padding: 10px;
+}
+
+.card-author {
+    border: solid 2px red;
+    padding: 10px;
+}
+
+.card-pages {
+    border: solid 2px red;
+    padding: 10px;
+}
+
+.card-read-status {
+    border: solid 2px red;
+    padding: 10px;
+}
+
+.remove-button {
+    padding: 10px;
+    margin: 10px;
+}
+
+.book-card{
+    padding: 10px;
+    border: solid;
 }

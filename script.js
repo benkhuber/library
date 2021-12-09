@@ -1,4 +1,11 @@
-let myLibrary = [];
+let testBook1 = new Book("The Hobbit", "JRR Tolkien", "500", "false");
+
+let myLibrary = [
+    testBook1
+];
+
+renderDisplay();
+
 let titleEntry = document.getElementsByClassName('title');
 let authorEntry = document.getElementsByClassName('author');
 let pagesEntry = document.getElementsByClassName('pages');
@@ -8,7 +15,7 @@ let addBook = document.getElementsByClassName('add-book')
 addBook[0].addEventListener('click', addBookToLibrary)
 
 let myLibraryTest = document.getElementsByClassName('library-check');
-myLibraryTest[0].addEventListener('click', libraryTest);
+myLibraryTest[0].addEventListener('click', renderDisplay);
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -24,24 +31,50 @@ function addBookToLibrary() {
         pagesEntry[0].value,
         readStatusEntry[0].checked)
     myLibrary.push(book);
-    displayBooks(myLibrary);
+    renderDisplay();
 }
 
+function renderDisplay() {
+        let wipeDisplay = document.getElementById('library-wipe');
+        wipeDisplay.innerHTML = '';
 
-function displayBooks() {
-{
+   for (i = 0; i < myLibrary.length; i++) {
+        let bookCard = document.createElement('div');
         let divTitle = document.createElement('div');
-        divTitle.innerHTML = "Title: " + titleEntry[0].value;
         let divAuthor = document.createElement('div');
-        divAuthor.innerHTML = "Author: " + authorEntry[0].value;
-        let parentDiv = document.getElementsByClassName('library-display');
-        parentDiv[0].appendChild(divTitle);
-        parentDiv[0].appendChild(divAuthor);
-        console.log(div);
+        let divPages = document.createElement('div');
+        let divReadStatus = document.createElement('div');
+        let removeButton = document.createElement('button');
+        let libraryDisplay = document.getElementsByClassName('library-display');
+
+        divTitle.innerHTML = "Title: " + myLibrary[i].title;
+        divAuthor.innerHTML = "Author: " + myLibrary[i].author;
+        divPages.innerHTML = "# of Pages: " + myLibrary[i].pages;
+        divReadStatus.innerHTML = "Read " + myLibrary[i].readStatus;
+        removeButton.innerHTML = "Remove Book"
+
+        divTitle.classList.add('card-title');
+        divAuthor.classList.add('card-author');
+        divPages.classList.add('card-pages');
+        divReadStatus.classList.add('card-read-status');
+        removeButton.classList.add('remove-button');
+        removeButton.setAttribute
+
+        bookCard.appendChild(divTitle);
+        bookCard.appendChild(divAuthor);
+        bookCard.appendChild(divPages);
+        bookCard.appendChild(divReadStatus);
+        bookCard.appendChild(removeButton);
+
+        libraryDisplay[0].appendChild(bookCard);
+        console.log(removeButton)
     }
 }
 
+let removeCardButton = document.getElementsByClassName('remove-button');
+removeCardButton[0].addEventListener('click', removeCard)
 
-function libraryTest() {
-    console.log(myLibrary);
+
+function removeCard() {
+    console.log(removeCardButton)
 }
