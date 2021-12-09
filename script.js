@@ -52,13 +52,14 @@ function renderDisplay() {
         divPages.innerHTML = "# of Pages: " + myLibrary[i].pages;
         divReadStatus.innerHTML = "Read " + myLibrary[i].readStatus;
         removeButton.innerHTML = "Remove Book"
+        removeButton.value = i;
+        removeButton.onclick = removeCard
 
         divTitle.classList.add('card-title');
         divAuthor.classList.add('card-author');
         divPages.classList.add('card-pages');
         divReadStatus.classList.add('card-read-status');
         removeButton.classList.add('remove-button');
-        removeButton.setAttribute
 
         bookCard.appendChild(divTitle);
         bookCard.appendChild(divAuthor);
@@ -67,14 +68,12 @@ function renderDisplay() {
         bookCard.appendChild(removeButton);
 
         libraryDisplay[0].appendChild(bookCard);
-        console.log(removeButton)
     }
 }
 
-let removeCardButton = document.getElementsByClassName('remove-button');
-removeCardButton[0].addEventListener('click', removeCard)
-
-
-function removeCard() {
-    console.log(removeCardButton)
+function removeCard(e) {
+    let index = e.target.value
+    myLibrary.splice(index, 1);
+    renderDisplay();
+    console.log(myLibrary);
 }
