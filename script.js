@@ -14,9 +14,6 @@ let readStatusEntry = document.getElementsByClassName('read-status')
 let addBook = document.getElementsByClassName('add-book')
 addBook[0].addEventListener('click', addBookToLibrary)
 
-let myLibraryTest = document.getElementsByClassName('library-check');
-myLibraryTest[0].addEventListener('click', renderDisplay);
-
 function Book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
@@ -25,18 +22,31 @@ function Book(title, author, pages, readStatus) {
 }
 
 function addBookToLibrary() {
+    if (titleEntry[0].value === '' || authorEntry[0].value === '' || pagesEntry[0].value < 0) {
+        alert("Please complete all fields");
+        renderDisplay();
+    } else {
     let book = new Book(
         titleEntry[0].value,
         authorEntry[0].value,
         pagesEntry[0].value,
-        readStatusEntry[0].checked)
+        readStatusEntry[0].checked);
     myLibrary.push(book);
     renderDisplay();
+    }
 }
 
 function renderDisplay() {
         let wipeDisplay = document.getElementById('library-wipe');
         wipeDisplay.innerHTML = '';
+
+        let wipeInput = document.getElementsByClassName('input');
+        for (i = 0; i < wipeInput.length; i++) {
+            wipeInput[i].value = ''}
+
+        let wipeCheckmark =  document.getElementsByClassName('read-status');
+        console.log(wipeCheckmark)
+        wipeCheckmark[0].checked = false;
 
    for (i = 0; i < myLibrary.length; i++) {
         let bookCard = document.createElement('div');
@@ -75,5 +85,4 @@ function removeCard(e) {
     let index = e.target.value
     myLibrary.splice(index, 1);
     renderDisplay();
-    console.log(myLibrary);
 }
