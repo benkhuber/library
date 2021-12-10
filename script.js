@@ -33,6 +33,7 @@ function addBookToLibrary() {
         readStatusEntry[0].checked);
     myLibrary.push(book);
     renderDisplay();
+    hideForm();
     }
 }
 
@@ -94,10 +95,26 @@ function removeCard(e) {
     renderDisplay();
 }
 
-
 function toggleRead(e) {
     if (myLibrary[e.target.value].readStatus != true) {
         (myLibrary[e.target.value].readStatus = true)
     } else { (myLibrary[e.target.value].readStatus = false)}
     renderDisplay();
 }
+
+let renderForm = () => {
+    let changeForm = document.getElementsByClassName('entry-form')
+    changeForm[0].style.display = 'flex';
+    let removeBookButton = document.getElementsByClassName('add-form')
+    removeBookButton[0].style.display = 'none';
+}
+
+let hideForm = () => {
+    let changeForm1 = document.getElementsByClassName('entry-form')
+    changeForm1[0].style.display = 'none';
+    let removeBookButton1 = document.getElementsByClassName('add-form')
+    removeBookButton1[0].style.display = '';
+}
+
+let addForm = document.getElementsByClassName('add-form')
+addForm[0].addEventListener('click', renderForm);
