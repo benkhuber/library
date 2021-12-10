@@ -45,7 +45,6 @@ function renderDisplay() {
             wipeInput[i].value = ''}
 
         let wipeCheckmark =  document.getElementsByClassName('read-status');
-        console.log(wipeCheckmark)
         wipeCheckmark[0].checked = false;
 
    for (i = 0; i < myLibrary.length; i++) {
@@ -72,6 +71,7 @@ function renderDisplay() {
         removeButton.onclick = removeCard
         divReadStatus.onclick = toggleRead
 
+        bookCard.classList.add('book-card');
         divTitle.classList.add('card-title');
         divAuthor.classList.add('card-author');
         divPages.classList.add('card-pages');

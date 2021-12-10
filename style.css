@@ -1,29 +1,48 @@
 body {
     font-family: Helvetica, sans-serif;
-    background-color:  rgb(255, 240, 233);
+    background-color:  rgb(75, 83, 126);
+    color: black;
+    background-color: white;
+    margin: 0;
 }
 
 .header {
     font-size: 30px;
+    font-weight: bold;
     display: flex;
+    color: rgb(255, 239, 151);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: black;
     justify-content: center;
 }
 
 .entry-form {
     display: flex;
     flex-direction: column;
+    background-color: rgb(255, 239, 151);;
     align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
     gap: 10px;
-    margin: 10px;
+    border-bottom: solid black 2px;
 }
 
 .add-book {
     margin: 10px;
-    font-size: 20px;
-    width: 120px;
-    height: 50px;
-    background-color: rgb(145, 145, 255);
+    font-size: 16px;
+    color: black;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border: solid white 2px;
     border-radius: 4px;
+    align-content: center;
+}
+
+.add-book:hover {
+    background-color: rgb(255, 2, 2);
+    cursor: pointer;
 }
 
 .input {
@@ -32,7 +51,8 @@ body {
 
 .library-display {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     flex: 1;
     gap: 10px;
     align-items: center;
@@ -52,23 +72,36 @@ body {
 
 .card-read-status {
     padding: 10px;
+    height: 30px;
+    width: 120px;
+    color: black;
+    align-self: center;
 }
 
 .remove-button {
     padding: 10px;
+    border: solid black 2px;
+    border-radius: 4px;
     margin: 10px;
+    background-color: rgb(255, 255, 255);
 }
 
 .book-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
-    border: solid;
-    margin: 50px;
+    border: solid black 2px;
+    border-radius: 4px;
+    margin: 10px;
+    width: 200px;;
+    background-color: rgb(255, 239, 151);;
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(194, 255, 194);
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(255, 158, 158);
 }
