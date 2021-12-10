@@ -1,5 +1,6 @@
 body {
-    font-family: Helvetica, sans-serif
+    font-family: Helvetica, sans-serif;
+    background-color:  rgb(255, 240, 233);
 }
 
 .header {
@@ -8,26 +9,27 @@ body {
     justify-content: center;
 }
 
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
 .add-book {
     margin: 10px;
     font-size: 20px;
     width: 120px;
     height: 50px;
-    background-color: rgb(161, 161, 252);
+    background-color: rgb(106, 106, 214);
+    border-radius: 4px;
 }
 
-.entry-form {
-    border: solid;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 10px;
+.input {
+    width: 200px;
 }
 
-.title {
-    border: solid;
-    
-}
 .library-display {
     display: flex;
     flex-direction: column;
@@ -37,22 +39,18 @@ body {
 }
 
 .card-title {
-    border: solid 2px red;
     padding: 10px;
 }
 
 .card-author {
-    border: solid 2px red;
     padding: 10px;
 }
 
 .card-pages {
-    border: solid 2px red;
     padding: 10px;
 }
 
 .card-read-status {
-    border: solid 2px red;
     padding: 10px;
 }
 
@@ -65,4 +63,12 @@ body {
     padding: 10px;
     border: solid;
     margin: 50px;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
 }

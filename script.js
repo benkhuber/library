@@ -1,4 +1,4 @@
-let testBook1 = new Book("The Hobbit", "JRR Tolkien", "500", "false");
+let testBook1 = new Book("The Hobbit", "JRR Tolkien", "500", true);
 
 let myLibrary = [
     testBook1
@@ -53,17 +53,24 @@ function renderDisplay() {
         let divTitle = document.createElement('div');
         let divAuthor = document.createElement('div');
         let divPages = document.createElement('div');
-        let divReadStatus = document.createElement('div');
+        let divReadStatus = document.createElement('button');
         let removeButton = document.createElement('button');
         let libraryDisplay = document.getElementsByClassName('library-display');
 
         divTitle.innerHTML = "Title: " + myLibrary[i].title;
         divAuthor.innerHTML = "Author: " + myLibrary[i].author;
         divPages.innerHTML = "# of Pages: " + myLibrary[i].pages;
-        divReadStatus.innerHTML = "Read " + myLibrary[i].readStatus;
+        if (myLibrary[i].readStatus === true) {
+            divReadStatus.innerHTML = "READ"
+            divReadStatus.classList.add('green')
+        } else if (myLibrary[i].readStatus === false) {
+            divReadStatus.innerHTML = "NOT READ"
+            divReadStatus.classList.add('red') }
+        divReadStatus.value = i;
         removeButton.innerHTML = "Remove Book"
         removeButton.value = i;
         removeButton.onclick = removeCard
+        divReadStatus.onclick = toggleRead
 
         divTitle.classList.add('card-title');
         divAuthor.classList.add('card-author');
@@ -84,5 +91,13 @@ function renderDisplay() {
 function removeCard(e) {
     let index = e.target.value
     myLibrary.splice(index, 1);
+    renderDisplay();
+}
+
+
+function toggleRead(e) {
+    if (myLibrary[e.target.value].readStatus != true) {
+        (myLibrary[e.target.value].readStatus = true)
+    } else { (myLibrary[e.target.value].readStatus = false)}
     renderDisplay();
 }
