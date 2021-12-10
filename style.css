@@ -145,3 +145,10 @@ body {
     color: white;
     cursor: pointer;
 }
+
+.input {
+    width: 200px;
+    height: 30px;
+    border: solid 2px black;
+    border-radius: 4px;;
+}
