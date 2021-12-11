@@ -22,7 +22,7 @@ function Book(title, author, pages, readStatus) {
 }
 
 function addBookToLibrary() {
-    if (titleEntry[0].value === '' || authorEntry[0].value === '' || pagesEntry[0].value < 0) {
+    if (titleEntry[0].value === '' || authorEntry[0].value === '' || pagesEntry[0].value <= 0 || pagesEntry[0].value === '') {
         alert("Please complete all fields");
         renderDisplay();
     } else {
